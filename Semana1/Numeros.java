@@ -15,5 +15,6 @@ public class Numeros {
         int suma = num1 + num2;
 
         System.out.println("La suma de los dos números es: " + suma);
+        scanner.close();
     }
 }
