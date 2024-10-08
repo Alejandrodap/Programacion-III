@@ -1,4 +1,5 @@
 package Semana4;
+
 public class SumArg {
     public static void main(String[] args) throws Exception {
         if (args.length!=2) {

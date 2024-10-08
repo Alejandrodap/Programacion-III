@@ -4,19 +4,17 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner s = new Scanner(System.in);
 
-        Person[] gente = new Person[7];
+        Person[] gente = new Person[3];
         for (int i = 0; i < gente.length; i++) {
             gente[i] = new Person();
             System.out.println("Introduce el nombre: ");
             gente[i].setNombre(s.nextLine());
-
             System.out.println("Introduce la altura: ");
-            float altura = Float.parseFloat(s.nextLine()); // leer como cadena y luego convertir
-            gente[i].setAltura(altura);
-
+            gente[i].setAltura(s.nextFloat());
+            s.nextLine(); // Consumir la línea restante
             System.out.println("Introduce el peso: ");
-            float peso = Float.parseFloat(s.nextLine()); // leer como cadena y luego convertir
-            gente[i].setPeso(peso);
+            gente[i].setPeso(s.nextFloat());
+            s.nextLine(); // Consumir la línea restante
         }
 
         Person alto = gente[0];
