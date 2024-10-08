@@ -2,54 +2,46 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Scanner s =new Scanner(System.in);
-        String nombre;
-        float peso,altura;
-        Person p1=new Person ();
-        System.out.println("Introduce el nombre: ");
-        p1.setNombre(s.nextLine());
-        System.out.println("Introduce la altura: ");
-        p1.setAltura(s.nextFloat());
-        System.out.println("Introduce el peso: ");
-        p1.setPeso(s.nextFloat());
+        Scanner s = new Scanner(System.in);
 
-        Person p2=new Person();
-        System.out.println("Introduce el nombre: ");
-        p2.setNombre(s.nextLine());
-        System.out.println("Introduce la altura: ");
-        p2.setAltura(s.nextFloat());
-        System.out.println("Introduce el peso: ");
-        p2.setPeso(s.nextFloat());
-        
-        nombre="Juan";
-        altura=(float) 1.8;
-        peso=(float) 70;
-        Person p3=new Person(nombre,altura,peso);
+        Person[] gente = new Person[7];
+        for (int i = 0; i < gente.length; i++) {
+            gente[i] = new Person();
+            System.out.println("Introduce el nombre: ");
+            gente[i].setNombre(s.nextLine());
 
-        Person alto = p1;
-        Person pesado = p1;
+            System.out.println("Introduce la altura: ");
+            float altura = Float.parseFloat(s.nextLine()); // leer como cadena y luego convertir
+            gente[i].setAltura(altura);
 
-        if (p2.getAltura() > alto.getAltura()) {
-            alto = p2;
-        }
-        if (p3.getAltura() > alto.getAltura()) {
-            alto = p3;
+            System.out.println("Introduce el peso: ");
+            float peso = Float.parseFloat(s.nextLine()); // leer como cadena y luego convertir
+            gente[i].setPeso(peso);
         }
 
-        if (p2.getPeso() > pesado.getPeso()) {
-            pesado = p2;
+        Person alto = gente[0];
+        Person pesado = gente[0];
+
+        if (gente[1].getAltura() > alto.getAltura()) {
+            alto = gente[1];
         }
-        if (p3.getPeso() > pesado.getPeso()) {
-            pesado = p3;
+        if (gente[2].getAltura() > alto.getAltura()) {
+            alto = gente[2];
         }
-        System.out.println("El mas alto es:"+alto.getNombre());
-        System.out.println("El mas pesado es:"+pesado.getNombre());
 
-        System.out.println("El IMC de "+p1.getNombre()+" es "+p1.calcularIMC());
-        System.out.println("El IMC de "+p2.getNombre()+" es "+p2.calcularIMC());
-        System.out.println("El IMC de "+p3.getNombre()+" es "+p3.calcularIMC());
+        if (gente[1].getPeso() > pesado.getPeso()) {
+            pesado = gente[1];
+        }
+        if (gente[2].getPeso() > pesado.getPeso()) {
+            pesado = gente[2];
+        }
 
+        System.out.println("El más alto es: " + alto.getNombre());
+        System.out.println("El más pesado es: " + pesado.getNombre());
 
+        System.out.println("El IMC de " + gente[0].getNombre() + " es " + gente[0].calcularIMC());
+        System.out.println("El IMC de " + gente[1].getNombre() + " es " + gente[1].calcularIMC());
+        System.out.println("El IMC de " + gente[2].getNombre() + " es " + gente[2].calcularIMC());
 
         s.close();
     }
