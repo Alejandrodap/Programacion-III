@@ -3,7 +3,8 @@
         "include": [
             "lib/**/*.jar",
             "Semana6/Concesionario/lib/biblioteca.jar",
-            "Semana6/ej1array/lib/biblioteca.jar"
+            "Semana6/ej1array/lib/biblioteca.jar",
+            "Semana7/holaMundoMVC/lib/biblioteca.jar"
         ],
         "exclude": [
             "Semana6/ej1/lib/biblioteca.jar"
