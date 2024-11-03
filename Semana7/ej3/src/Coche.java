@@ -1,7 +1,6 @@
 
 public class Coche {
-    
-    
+
     private String modelo;
     private String marca;
     private String matricula;
@@ -9,14 +8,11 @@ public class Coche {
     private double precio;
     final double IVA = 21;
 
-
-    
-    
-    //Constructores
+    // Constructores
     public Coche(String matricula) {
         this.matricula = matricula;
     }
-           
+
     public Coche(String modelo, String marca, String matricula, int anio, double precio) {
         this.modelo = modelo;
         this.marca = marca;
@@ -24,9 +20,8 @@ public class Coche {
         this.anio = anio;
         this.precio = precio;
     }
-    
-    
-    //métodos getter y setter
+
+    // métodos getter y setter
 
     public String getModelo() {
         return modelo;
@@ -68,8 +63,9 @@ public class Coche {
         this.precio = precio;
     }
 
-    public  String getDescripcion() {
-        return "Coche [modelo= "+modelo+", marca= "+marca+", matricula= "+matricula+"  , anio= "+anio+" , precio= "+precio+"]";
+    public String getDescripcion() {
+        return "Coche [modelo= " + modelo + ", marca= " + marca + ", matricula= " + matricula + "  , anio= " + anio
+                + " , precio= " + precio + "]";
     }
 
     @Override
@@ -97,7 +93,4 @@ public class Coche {
         return true;
     }
 
-    
 }
-
-

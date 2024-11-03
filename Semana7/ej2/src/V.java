@@ -1,6 +1,6 @@
 import static com.coti.tools.Esdia.*;
 
-public class Vista {
+public class V {
     public void menu() {
         System.out.println("\nMenú:");
         System.out.println("1. Leer tabla de ventas");
