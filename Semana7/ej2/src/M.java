@@ -1,4 +1,4 @@
-public class Model {
+public class M {
     private static int[][] ventas  = new int[5][2]; //5 calmacen 2 producto
     private static double[] precios = new double[2];
 

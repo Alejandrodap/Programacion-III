@@ -1,9 +1,12 @@
-public class Controller {
-    private Model model;
-    private Vista view;
+
+
+
+public class C {
+    private M model;
+    private V view;
     private boolean ventas=false;
     private boolean precios=false;
-    public Controller(Model model, Vista view) {
+    public C(M model, V view) {
         this.model = model;
         this.view = view;
     }
