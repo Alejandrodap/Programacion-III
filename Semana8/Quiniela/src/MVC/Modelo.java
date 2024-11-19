@@ -28,7 +28,6 @@ public class Modelo {
                 return;
             }
             lineas=Files.readAllLines(archivo);
-            System.out.println(lineas);
             for(String linea:lineas){
                 Partido p = getPartidoTexto(linea,"-");
                 partidos.add(p);
