@@ -24,6 +24,10 @@ public class Direccion {
         return new Direccion(calle, numero, piso, letra);
     }
 
+    public String toCSV() {
+        return calle + "," + numero + "," + piso + "," + letra;
+    }
+    
     @Override
     public String toString() {
         return calle + " " + numero + ", Piso " + piso + ", Letra " + letra;

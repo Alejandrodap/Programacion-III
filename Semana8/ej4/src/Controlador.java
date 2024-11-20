@@ -20,9 +20,20 @@ public class Controlador {
                     vista.mostrarMensaje("Datos creados");
                     break;
                 case 2:
-                    vista.mostrarPersonas(modelo.getPersonaTabulada());
+                    //mostrar info
+                    modelo.mostrarAlumnos();
                     break;
                 case 3:
+                    //exportar datos personales csv
+                    modelo.exportarDireccionesCSV();
+                    vista.mostrarMensaje("Datos de direcciones exportados");
+                    break;
+                case 4:
+                    //exportar direcciones csv
+                    modelo.exportarDatosAlumnoCSV();
+                    vista.mostrarMensaje("Datos personales de alumnos exportados");
+                    break;
+                case 5:
                     continuar = false;
                     break;
                 default:
@@ -31,5 +42,6 @@ public class Controlador {
         }
     }
 
+    
    
 }

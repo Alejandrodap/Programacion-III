@@ -36,6 +36,9 @@ public class DatosPersonales {
         return NIF.toString();
     }
 
+    public String toCSV() {
+        return nombre + "," + apellidos + "," + edad + "," + NIF;
+    }
     @Override
     public String toString() {
         return nombre + " " + apellidos + ", Edad: " + edad + ", NIF: " + NIF;

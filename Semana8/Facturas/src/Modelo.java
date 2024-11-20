@@ -1,9 +1,13 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.coti.tools.OpMat;
 import com.coti.tools.Rutas;
 
 public class Modelo {
@@ -68,5 +72,62 @@ public class Modelo {
         return new Factura(concepto, descuento, fecha, importe, nif, nombreCliente, direccion, iva);
     }
 
+public void exportarAHtml() {
+        StringBuilder html = new StringBuilder();
+        html.append("<html><head><title>Facturas</title></head><body>");
+        html.append("<h1>Listado de Facturas</h1>");
+        html.append("<table border='1'><tr><th>Concepto</th><th>Descuento</th><th>Fecha</th><th>Importe</th><th>NIF</th><th>Cliente</th><th>Dirección</th><th>IVA</th></tr>");
 
+        for (Factura factura : facturas) {
+            html.append("<tr>")
+                .append("<td>").append(factura.getConcepto()).append("</td>")
+                .append("<td>").append(factura.getDescuento()).append("</td>")
+                .append("<td>").append(factura.getFecha()).append("</td>")
+                .append("<td>").append(factura.getImporte()).append("</td>")
+                .append("<td>").append(factura.getNif()).append("</td>")
+                .append("<td>").append(factura.getNombreCliente()).append("</td>")
+                .append("<td>").append(factura.getDireccion()).append("</td>")
+                .append("<td>").append(factura.getIva()).append("</td>")
+                .append("</tr>");
+        }
+
+        html.append("</table></body></html>");
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("facturas.html"))) {
+            writer.write(html.toString());
+
+        } catch (IOException e) {
+            System.out.println("ERROR: " + e.getMessage());
+
+        }
+    }
+
+    public void exportarACsv() {
+        String[][] datosFacturas = new String[facturas.size() ][8]; 
+    
+        int i = 0;
+        for (Factura factura : facturas) {
+            datosFacturas[i] = new String[]{
+                factura.getConcepto(),
+                String.valueOf(factura.getDescuento()),
+                factura.getFecha(),
+                String.valueOf(factura.getImporte()),
+                factura.getNif(),
+                factura.getNombreCliente(),
+                factura.getDireccion(),
+                String.valueOf(factura.getIva())
+            };
+            i++;
+        }
+
+        File archivoCsv = new File("facturas.csv");
+        String separador = ","; 
+    
+        try {
+            OpMat.exportToDisk(datosFacturas, archivoCsv, separador);
+
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+    }
 }
