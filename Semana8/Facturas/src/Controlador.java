@@ -1,10 +1,6 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.List;
 
-import com.coti.tools.OpMat;
 public class Controlador {
     private Modelo modelo;
     private Vista vista;
